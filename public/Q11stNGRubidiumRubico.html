@@ -11,11 +11,15 @@
 </style>
 <script>
   let Age = (prompt("How old are you?"));
-  let MaxAge = 75;
-
+  let MaxAge = (prompt("What age do you want to die?"));
   let NumPerDay = (prompt("How many pieces of oreo can you eat daily?"))
+   let TotalRequired= NumPerDay * 365 * (MaxAge - Age);
 
-  let TotalRequired = NumPerDay * 365 * (MaxAge - Age);
+   let Status = (prompt("Are you sure about your inputs? (yes/no)")); 
 
-  document.write("You will need to eat " + TotalRequired + " pieces of oreos to last you until the ripe old age of 75!! :O");
+   if (Status.toLowerCase() !== "no") {
+    document.write("You will need to eat " + TotalRequired + " pieces of oreos to last you until the ripe old age of " + MaxAge + " !! :O");
+   } else 
+    document.write("Run the code again.");
+   
 </script>
