@@ -10,16 +10,17 @@
   }
 </style>
 <script>
-  let Age = (prompt("How old are you?"));
-  let MaxAge = (prompt("What age do you want to die?"));
-  let NumPerDay = (prompt("How many pieces of oreo can you eat daily?"))
-   let TotalRequired= NumPerDay * 365 * (MaxAge - Age);
 
-   let Status = (prompt("Are you sure about your inputs? (yes/no)")); 
+  let age = (prompt("How old are you?"));
+  let maxAge = (prompt("How old do you want to die?"));
+  let numPerDay = (prompt("How many oreos can you eat daily?"));
+  let status = (prompt("Are you sure with all the information? (yes/no)"));
+  let totalRequired = (numPerDay * 365) * (maxAge - age);
 
-   if (Status.toLowerCase() !== "no") {
-    document.write("You will need to eat " + TotalRequired + " pieces of oreos to last you until the ripe old age of " + MaxAge + " !! :O");
-   } else 
-    document.write("Run the code again.");
-   
+  if (status === "no") {
+      document.write("Run the code again.");
+    } else {
+      document.write("You will need " + totalRequired + " to last you until the ripe old age of " + maxAge + " !! :O");
+    }
+
 </script>

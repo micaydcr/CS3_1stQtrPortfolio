@@ -1,0 +1,30 @@
+<html>
+    <title>input</title>
+    <body>
+    <style>
+  body {
+    background-color: rgb(56, 167, 205);
+    font-family:Ubuntu,bold;
+    color: rgb(17, 90, 173);
+  }
+</style>
+        <label> <h2> Q1 2nd Graded Exercise submitted by Micay Rubico of 9 - Rubidium </h2></label> <br>
+        Meal Price: <Input id="mealPrice"/> <br>
+        Tip: <Input id="tip"/> <br>
+        Service Charge: <Input id="serviceCharge"/> <br>
+        <br><button onclick="totalMeal()"> Accept Input</button>
+        <br> <br>
+        <p id="result">Total Meal:</p>
+        <br>
+        <script>
+            function totalMeal() {
+                let mp = parseFloat(document.getElementById("mealPrice").value);
+                let tip = parseFloat(document.getElementById("tip").value);
+                let sc = parseFloat(document.getElementById("serviceCharge").value);
+
+                let totalcost = mp + tip + (sc / 100 * mp);
+                document.getElementById("result").innerHTML = "Total Meal: " + totalcost.toFixed(2);
+            }
+        </script>
+    </body>
+</html>
