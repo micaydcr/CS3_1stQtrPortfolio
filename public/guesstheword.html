@@ -1,3 +1,14 @@
+
+  <style>
+  body {
+    background-color: rgb(56, 167, 205);
+    font-family:bold;
+    font-size: large;
+    color: rgb(10, 78, 155);
+    display: flex;
+    text-align: justify;
+  }
+</style>
 <h1>Guess My Word</h1>
 <p id="wordDisplay"></p>
 <input type="text" id="guessInput" maxlength="1">
@@ -5,8 +16,8 @@
 <p id="message"></p>
 
 <script>
-  let secretWord = ["a", "m", "a", "z", "i", "n", "g"];
-  let guessedWord = ["_", "_", "_", "_", "_", "_", "_"];
+  let secretWord = ["m", "a", "g", "i", "c", "a", "l","m","i","c","a","y"];
+  let guessedWord = ["_", "_", "_", "_", "_", "_", "_","_","_","_","_","_"];
 
   document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
 
