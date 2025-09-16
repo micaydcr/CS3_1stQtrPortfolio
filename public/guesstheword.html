@@ -3,8 +3,10 @@
   body {
     background-color: rgb(56, 167, 205);
     font-family:bold;
-    font-size: large;
+    font-size: x-large;
     color: rgb(10, 78, 155);
+    text-align: center;
+    justify-content: center;
   }
 </style>
 <h1>Guess My Word</h1>
@@ -12,15 +14,24 @@
 <input type="text" id="guessInput" maxlength="1">
 <button onclick="makeGuess()">Guess</button>
 <p id="message"></p>
+<p id="counter"></p>
+<button onclick="tryagain()">Try Again?</button>
 
 <script>
   let secretWord = ["m", "a", "g", "i", "c", "a", "l","m","i","c","a","y"];
-  let guessedWord = ["_", "_", "_", "_", "_", "_", "_","_","_","_","_","_"];
+  let guessedWord = [];
+  let number = 5;
+  document.getElementById("counter").textContent = "You have " + number + " guesses left";
+  for (let i = 0; i < secretWord.length; i++) {
+  guessedWord.push("_");
+  }
 
   document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
 
   function makeGuess() {
     let guess = document.getElementById("guessInput").value.toLowerCase();
+    
+    if (!(guessedWord.includes(guess)) && number != 0)  {
     let correct = false;
 
     for (let i = 0; i < secretWord.length; i++) {
@@ -30,8 +41,31 @@
       }
     }
 
+    if (!correct) {
+      number--;
+   }
+
+
     document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+    document.getElementById("counter").textContent = "You have " + number + " guesses left 😛";
     document.getElementById("message").textContent = correct ? "✅ Correct!" : "❌ Try again.";
     document.getElementById("guessInput").value = "";
   }
-</script>
+}
+        function tryagain() {
+        if (number <6) {
+            secretWord = ["m", "a", "g", "i", "c", "a", "l","m","i","c","a","y"];
+            guessedWord = [];
+            number = 5;
+            document.getElementById("counter").textContent = "You have " + number + " guesses left 😛";
+            for (let i = 0; i < secretWord.length; i++) {
+                guessedWord.push("_");
+            }
+
+            document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+            document.getElementById("counter").textContent = "You have " + number + " guesses left 😛";
+            document.getElementById("message").textContent = "";
+            document.getElementById("guessInput").value = "";
+          }  
+        }        
+  </script>
