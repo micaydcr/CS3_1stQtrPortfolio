@@ -21,7 +21,7 @@
   let secretWord = ["m", "a", "g", "i", "c", "a", "l","m","i","c","a","y"];
   let guessedWord = [];
   let number = 5;
-  document.getElementById("counter").textContent = "You have " + number + " guesses left";
+  document.getElementById("counter").textContent = "You have " + number + " guesses";
   for (let i = 0; i < secretWord.length; i++) {
   guessedWord.push("_");
   }
@@ -45,11 +45,14 @@
       number--;
    }
 
-
     document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
     document.getElementById("counter").textContent = "You have " + number + " guesses left 😛";
     document.getElementById("message").textContent = correct ? "✅ Correct!" : "❌ Try again.";
     document.getElementById("guessInput").value = "";
+
+    if (number === 0) {
+    document.getElementById("message").textContent = "😵‍💫 You lost ! The word was magicalmicay !"
+    }
   }
 }
         function tryagain() {
